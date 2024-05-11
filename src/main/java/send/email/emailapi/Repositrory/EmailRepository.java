@@ -1,9 +1,16 @@
 package send.email.emailapi.Repositrory;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 
 import send.email.emailapi.Entity.Mail;
 
-public interface EmailRepository extends JpaRepository<Mail,Integer>{
+
+public interface EmailRepository extends CrudRepository<Mail,Integer>{
     
+    @Query(value="select * from emailapi.smpleemail",nativeQuery=true)
+    public List<Mail> geList();
 }

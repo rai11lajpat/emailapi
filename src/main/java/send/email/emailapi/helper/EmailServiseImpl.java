@@ -1,5 +1,6 @@
 package send.email.emailapi.helper;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
@@ -10,11 +11,13 @@ import org.springframework.stereotype.Service;
 
 import jakarta.mail.internet.MimeMessage;
 import send.email.emailapi.Entity.Mail;
+import send.email.emailapi.Repositrory.EmailRepository;
 import send.email.emailapi.servise.EmailServise;
 
 @Service
 public class EmailServiseImpl implements EmailServise {
 
+    @Autowired EmailRepository emailRepository;
     @Autowired private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}") private String sender;
 
@@ -65,6 +68,14 @@ public class EmailServiseImpl implements EmailServise {
         
     }
 
+    
+
+
+    @Override
+    public List getAllMail() {
+        List<Mail> list=(List<Mail>)this.emailRepository.geList();
+        return list;
+    }
 
 
     

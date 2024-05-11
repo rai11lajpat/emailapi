@@ -1,5 +1,6 @@
 package send.email.emailapi.controler;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,6 +8,9 @@ import send.email.emailapi.Entity.Mail;
 import send.email.emailapi.servise.EmailServise;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
 
 
 @RestController
@@ -25,5 +29,12 @@ public class EmailControler {
         String status=emailServise.sendMailWithAtttachment(detailMail);
         return status;
     }
+
+    @GetMapping("/get")
+    public List getMails() {
+        
+        return emailServise.getAllMail();
+    }
+    
     
 }
