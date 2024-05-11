@@ -7,5 +7,7 @@ import send.email.emailapi.Entity.Mail;
 public interface EmailServise {
 String sendSimpleEmail(Mail details);
 String sendMailWithAtttachment(Mail details);
-List getAllMail();
+List<Mail>  getAllMail();
+List<Mail>  getSimple();
+List<Mail>  getAttachedFile();
 }

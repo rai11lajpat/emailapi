@@ -74,8 +74,28 @@ public class EmailServiseImpl implements EmailServise {
 
 
     @Override
-    public List getAllMail() {
+    public List<Mail>  getAllMail() {
         List<Mail> list=(List<Mail>)this.emailRepository.geList();
+        return list;
+    }
+
+
+
+
+
+    @Override
+    public List<Mail>  getSimple() {
+        List<Mail> list=(List<Mail>)this.emailRepository.getSimpleList();
+        return list;
+    }
+
+
+
+
+
+    @Override
+    public List<Mail> getAttachedFile() {
+        List<Mail> list=(List<Mail>)this.emailRepository.getAttachList();
         return list;
     }
 

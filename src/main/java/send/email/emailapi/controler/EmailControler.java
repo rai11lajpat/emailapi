@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 
+
 @RestController
 public class EmailControler {
     @Autowired private EmailServise emailServise;
@@ -30,11 +31,21 @@ public class EmailControler {
         return status;
     }
 
-    @GetMapping("/get")
-    public List getMails() {
+    @GetMapping("/getAll")
+    public List<Mail>  getMails() {
         
         return emailServise.getAllMail();
     }
+     @GetMapping("/getSimple")
+     public List<Mail>  getSimple() {
+         return emailServise.getSimple();
+     }
     
+    @GetMapping("/getAttached")
+    public List<Mail>  getAttach() {
+        return emailServise.getAttachedFile();
+    }
+    
+     
     
 }
