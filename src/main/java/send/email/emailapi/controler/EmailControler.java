@@ -3,7 +3,7 @@ package send.email.emailapi.controler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import send.email.emailapi.emailDetails.Mail;
+import send.email.emailapi.Entity.Mail;
 import send.email.emailapi.servise.EmailServise;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

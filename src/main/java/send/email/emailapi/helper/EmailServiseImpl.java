@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import jakarta.mail.internet.MimeMessage;
-import send.email.emailapi.emailDetails.Mail;
+import send.email.emailapi.Entity.Mail;
 import send.email.emailapi.servise.EmailServise;
 
 @Service
