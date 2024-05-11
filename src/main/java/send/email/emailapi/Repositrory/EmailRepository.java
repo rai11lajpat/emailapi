@@ -10,7 +10,15 @@ import send.email.emailapi.Entity.Mail;
 
 
 public interface EmailRepository extends CrudRepository<Mail,Integer>{
+
+
     
-    @Query(value="select * from emailapi.smpleemail",nativeQuery=true)
+    @Query(value="SELECT simpleemail.email_id,\n" + //
+                "       simpleemail.msg_body,\n" + //
+                "       simpleemail.recipient,\n" + //
+                "       simpleemail.subject,\n" + //
+                "       with_attachment_email.attachment \n" + //
+                "FROM emailapi.simpleemail \n" + //
+                "LEFT JOIN emailapi.with_attachment_email ON simpleemail.email_id = with_attachment_email.email_id;",nativeQuery=true)
     public List<Mail> geList();
 }

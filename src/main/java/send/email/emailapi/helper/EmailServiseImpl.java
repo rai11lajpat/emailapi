@@ -34,6 +34,7 @@ public class EmailServiseImpl implements EmailServise {
 
 
             javaMailSender.send(mailMessage);
+            emailRepository.save(details);
             return "Mail sent Successfully...";
         } catch (Exception e) {
             return "Error while sending email";
@@ -60,6 +61,7 @@ public class EmailServiseImpl implements EmailServise {
 
             mimeMessageHelper.addAttachment(file.getFilename(), file);
             javaMailSender.send(mimeMessage);
+            emailRepository.save(details);
 
             return "Sent Successfully with attachment......";
         } catch (Exception e) {
