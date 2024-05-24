@@ -20,6 +20,7 @@ public class EmailControler {
 
     @PostMapping("/sendSimpleMail")
     public String simple(@RequestBody Mail detailsMail) {
+        
         String status=emailServise.sendSimpleEmail(detailsMail);
         
         return status;
