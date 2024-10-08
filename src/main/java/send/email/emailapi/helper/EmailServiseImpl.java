@@ -26,10 +26,13 @@ public class EmailServiseImpl implements EmailServise {
     @Override
     public String sendSimpleEmail(Mail details){
         try {
+            System.out.println(details);
             SimpleMailMessage mailMessage=new SimpleMailMessage();
             mailMessage.setFrom(sender);
+            //mailMessage.setFrom("lajpatsankhla@gmail.com");
             mailMessage.setTo(details.getRecipient());
             mailMessage.setText(details.getMsgBody());
+            
             mailMessage.setSubject(details.getSubject());
 
 
@@ -37,6 +40,8 @@ public class EmailServiseImpl implements EmailServise {
             emailRepository.save(details);
             return "Mail sent Successfully...";
         } catch (Exception e) {
+            //return "Error while sending email";
+            e.printStackTrace();
             return "Error while sending email";
         }
     }
