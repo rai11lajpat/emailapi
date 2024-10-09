@@ -31,7 +31,8 @@ public class EmailServiseImpl implements EmailServise {
             mailMessage.setFrom(sender);
             //mailMessage.setFrom("lajpatsankhla@gmail.com");
             mailMessage.setTo(details.getRecipient());
-            mailMessage.setText(details.getMsgBody());
+            //mailMessage.setText(details.getMsgBody());
+            mailMessage.setText("hyyyyyyyy");
             
             mailMessage.setSubject(details.getSubject());
 
